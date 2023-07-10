@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+      --primary-color: linear-gradient(to right, #004886, hsl(234, 100%, 8%)); 
+     --secondary-color: #fff; 
+   
+   
+}
+ .dark-theme{
+    --primary-color: linear-gradient(0deg, #FFDEE9 0%, #dafdfc 100%); 
+    --secondary-color: black;
+} 
+
+#icon{
+    width: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+body{
+    background: var(--primary-color); 
+    color: var(--secondary-color);
+  
+}
+h1 span{
+    color: #000000;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container h1{
+    margin-bottom: 45px;
+}
+.container h1 span{
+    background: linear-gradient(to right, #32ffd6, #f7ebac);
+    padding: 11px 68px;
+    border-radius: 50px;
+}
+.game-board{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+}
+.cell{
+    border: 2px solid var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 60px;
+    font-weight: 600;
+    height: 120px;
+    cursor: pointer;
+}
+.cell:first-child, .cell:nth-child(2), .cell:nth-child(3){
+    border-top: none;
+}
+.cell:nth-child(3n){
+    border-right: none;
+}
+/* .cell:nth-child(1),.cell:nth-child(4), .cell:nth-child(7){
+    border-left: none;
+} */
+.cell:nth-child(3n+1){
+    border-left: none;
+}
+.cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9){
+    border-bottom: none;
+}
+.game-players{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.player{
+     margin-inline: 19px;
+     font-size: 25px;
+     font-weight: 550;
+}
+.restartBtn{
+    border: none;
+    background: #32ffd6;
+    color: #000000;
+    margin-block: 22px;
+    padding: 10px 30px;
+    font-size: 28px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.restartBtn:hover{
+    background:  #f7ebac;
+}
+
+.cell.disabled {
+    background: rgb(121, 119, 119);
+}
+
+.alertBox{
+    position: absolute;
+    top: 0;
+    background-color:  #dfdfdf;
+    color: #323235;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 20px;
+    font-weight: 600;
+    height: 40px;
+    display: none;
+}
+
+@media screen and (max-width:550px) {
+    .game-board{
+        grid-template-columns: repeat(3, minmax(90px, 1fr));
+    }
+    .cell{
+        height: 90px;
+        font-size: 50px;
+    }
+    .container h1 span{
+        font-size: 30px;
+        padding: 10px 28px;
+    }
+    .restartBtn{
+        margin-block: 20px;
+        padding: 7px 20px;
+        font-size: 21px;
+        font-weight: 500;
+    }
+}
